@@ -8,7 +8,7 @@ window.onload = function(){
 
 function startGame(){
     let arr=[
-        [0,0,0,0],
+        [0,0,8,0],
         [0,2,0,0],
         [0,0,4,0],
         [32,0,0,0]
