@@ -1,0 +1,146 @@
+body{
+    text-align: center;
+    background-color:#d5d3e5;
+    background-image: linear-gradient(to right, rgba(67, 3, 96, 0.5), #A59bb0, rgba(67, 3, 96, 0.5)  );
+    font-family: 'Bruno Ace', cursive ,sans-serif;
+    color: #322b40;
+    position: relative;
+}
+hr{
+    height: 2px;
+        background-color:rgb(112, 108, 112);
+        border: none;
+        width: 400px;
+}
+
+.box{
+    width: 400px;
+    height: 400px;
+    background-color: #322b40;
+    border: 7px solid #322b40;
+    margin: 0 auto;
+    border-radius: 8%;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.element{
+    height: 88px;
+    width: 88px;
+    border: 6px solid #322b40;
+    background-color: #c1acbc;
+    border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+}
+
+.Title{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+.music{position: absolute;
+}
+
+.new-game {
+    padding: 10px;
+    font-size: 20px;
+    background-color: #322b40;
+    color: #c1acbc;
+    border: none;
+    border-radius: 5%;
+}
+
+.new-game:hover{
+    background-color: #ecdcf9;
+    color: #533680 ; 
+    transition-duration: .5s;
+}
+
+.score{
+    background-color:rgba(93, 73, 103, 0.873);
+    padding:9px;
+    text-align: left;
+    color: #eee8f6;
+    border-radius: 5%;
+    font-size: 15px;
+    font-family: 'Bruno Ace', cursive, sans-serif
+}
+.score-num{
+    color:#aa88f1;
+    font-size:20px ;
+}
+
+.e2{
+    background-color: #c1acbc;
+    color: #322b40;
+}
+
+.e4{
+    background-color: #ab9ea8;
+    color: #322b40;
+
+}
+
+.e8{
+    background-color: #8e7e8b;
+    color: #d2cedb; 
+}
+
+.e16{
+    background-color: #8d7cb0;
+    color: #d2cedb; 
+}
+
+.e32{
+    /* background-color: #5e5bb6; */
+    background-color: #775cad;
+
+    color: #d2cedb; 
+}
+
+.e64{
+    background-color: #5a389f;
+    color: #d2cedb; 
+}
+
+.e128{
+    background-color: #91658f;
+    color: #d2cedb; 
+}
+
+.e256{
+    background-color: #8c5389;
+    color: #d2cedb; 
+    
+}
+
+.e512{
+    background-color: #7c608b;
+    color: #d2cedb; 
+}
+
+.e1024{
+    background-color: #7d52a3;
+    color: #d2cedb; 
+    font-size: 30px;
+}
+
+.e2048{
+    background-color: #8f5abe;
+    color: #d2cedb; 
+    font-size: 25px;
+    font-weight: bold;
+   
+}
+
+
+
+
+
