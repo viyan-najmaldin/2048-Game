@@ -9,10 +9,10 @@ window.onload = function(){
 
 function startGame(){
      arr=[
-        [8,0,8,0],
-        [2,2,0,2],
-        [2,4,4,8],
-        [32,4,0,0]
+        [0,0,0,0],
+        [0,0,0,0],
+        [0,0,0,0],
+        [0,0,0,0]
     ]
 
     for(let i=0 ;i<rows;i++){
@@ -23,22 +23,29 @@ function startGame(){
             //  element.innerText=num
             element.classList.add('element')
             element.id=i+'-'+j;
+            
             updateElement(element,num)
           
             document.querySelector('.box').append(element)
+            
         }
+        
     }
+    
+    setTwo()
+    setTwo()
 }
 
 function updateElement(element,num){
     element.innerText=''
     element.classList.value=''
-    
     element.classList.add('element')
+    
     if(num>0){
     element.innerText=num
     element.classList.add(`e${num}`)
-      
+    element.classList.add('smooth')
+    element.classList.add('unsmooth')
     }
     
 
@@ -51,47 +58,54 @@ function filtterZero(row){
 
 ///////////////////////////////////// move left
 
-
-
 function moveLeft(){
-    for(let i=0 ;i<rows;i++){
-     let row= arr[i]   // 0 2 0 2
-    row= filtterZero(row)  //2 2
-     for(let x=0 ;x<row.length-1;x++){  // 4    
-      if(row[x] == row[x+1]){
-        row[x] *= 2;
-        row[x+1]=0;
-            }   
-     }
-    row= filtterZero(row)     
-    while(row.length<4) {
-          row.push(0) }
-   arr[i]=row
-    } 
+    for(let i=0; i<4; i++){
+        for(let j=0; j<4; j++){
+            if(arr[i][j]!=0){
+                let z=j
+
+                while(j>0 && arr[i][z-1]==0){
+                    arr[i][z-1]=arr[i][z]
+                    arr[i][z]=0
+                     z--
+                            }
+
+                if(z>0  && arr[i][z]==arr[i][z-1]){
+                    arr[i][z-1]*= 2
+                    arr[i][z]=0
+                }
+            }
+        }
+    }
 }
 
+
+
 // function moveLeft(){
-//     for(let i=0 ;i<arr.length;i++){
-//       let x = filtterZero(arr[i]) 
-//            arr[i]= x
-//         for(let j=0 ;j<x.length;j++){
-//             if(arr[i][j] == arr[i][j+1]){
-//                 arr[i][j] *= 2;
-//                 arr[i][j+1]=0;
-//                 arr[i]=filtterZero(arr[i]) 
-//             }        
-//             while(arr[i].length<4) {
-//                 arr[i].push(0)}
-//         }
-//     }
+//     for(let i=0 ;i<rows;i++){
+//      let row= arr[i]   // 0 2 0 2
+//     row= filtterZero(row)  //2 2
+//      for(let x=0 ;x<row.length-1;x++){  // 4    
+//       if(row[x] == row[x+1]){
+//         row[x] *= 2;
+//         row[x+1]=0;
+//             }   
+//      }
+//     row= filtterZero(row)     
+//     while(row.length<4) {
+//           row.push(0) }
+//    arr[i]=row
+//     } 
 // }
+
+
 
 function moveRight(){
     for(let i=0 ;i<rows;i++){
-     let row= arr[i]   // 0 2 0 2
-    row= filtterZero(row)  //2 2
+     let row= arr[i]   
+    row= filtterZero(row)  
 
-     for(let x=0 ;x<row.length-1;x++){  // 4    
+     for(let x=0 ;x<row.length-1;x++){  
       if(row[x] == row[x+1]){
         row[x+1] *= 2;
         row[x]=0;
@@ -101,10 +115,7 @@ function moveRight(){
     row= filtterZero(row)     
     while(row.length<4) {
           row.unshift(0)}
-     
-    // console.log(row)
-    // return row;
-
+    
    arr[i]=row
     } 
 }
@@ -170,6 +181,7 @@ document.addEventListener('keyup' ,(event)=>{
 if (event.code == 'ArrowLeft'){
     console.log('leftttttt')
     moveLeft();
+    setTwo()
     console.log(arr)
    
 }
@@ -177,6 +189,7 @@ if (event.code == 'ArrowLeft'){
 if (event.code == 'ArrowRight'){
     console.log('righttttttt')
     moveRight()
+    setTwo()
     console.log(arr)
 
 }
@@ -184,17 +197,20 @@ if (event.code == 'ArrowRight'){
 if (event.code == 'ArrowUp'){
     console.log('Uppp')
     moveUp()
+    setTwo()
     console.log(arr)
 }
 
 if (event.code == 'ArrowDown'){
     console.log('Down')
     moveDown()
+    setTwo()
     console.log(arr)
 }
 for(let i=0 ;i<rows;i++){
     for(let j=0; j<columns; j++){
      let  ele= document.getElementById(i+'-'+j)
+     
      let num =arr[i][j]
      
         updateElement(ele,num)
@@ -204,5 +220,33 @@ for(let i=0 ;i<rows;i++){
 
 
 
+function setTwo(){
+    // for(let i=0 ;i<rows;i++){
+    //     for(let j=0; j<columns; j++){
+
+    //         if(!(arr[i][j]==0)){
+              
+                let r= Math.floor(Math.random() *4)
+                let c= Math.floor(Math.random() *4)
+ 
+                let found = false;
+                
+                if(arr[r][c]==0){
+                  console.log(arr)
+
+                    console.log(r+ ' & ' +c)
+                  arr[r][c]=2;
+                  let  element = document.getElementById(r+'-'+c)
+
+                  element.innerText= 2;
+                   element.classList.add('e2')
+
+                
+            }
+            // }
+
+            // else return;
+        // } }
+}
 
 

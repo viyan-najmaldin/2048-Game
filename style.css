@@ -35,6 +35,7 @@ hr{
     justify-content: center;
     align-items: center;
     font-size: 35px;
+    transition: width .5s, height .5s;
 }
 
 .Title{
@@ -139,6 +140,19 @@ hr{
     font-weight: bold;
    
 }
+
+.smooth{
+  width: 30px;
+  height: 30px;
+}
+
+.unsmooth{
+    transition-delay: 1s;
+    width: 88px;
+    height: 88px;
+  }
+
+
 
 
 
