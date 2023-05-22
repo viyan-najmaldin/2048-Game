@@ -12,7 +12,7 @@ function startGame(){
      arr=[
         [0,0,0,0],
         [0,0,0,0],
-        [4,4,2,2],
+        [8,4,2,2],
         [4,4,2,2]
     ]
 
@@ -177,6 +177,27 @@ function moveDown(){
     }
 }
 
+// function moveRight(){
+    
+
+// for(let i=0;i<4;i++) {
+//     for (let j=2;j>=0;j--) {
+//       if(arr[i][j]!=0) {
+//         let z=j;
+//         while(z<3&&arr[i][z+1]==0) {
+//           arr[i][z+1]=arr[i][z];
+//           arr[i][z]=0;
+//           z++;
+//         }
+//           if(z<3&&arr[i][z]==arr[i][z+1]) {
+//             arr[i][z+1]*=2;
+            
+//               arr[i][z]=0;
+//         }
+//       }
+//     }
+//   }
+// }
 
 
 
@@ -242,7 +263,7 @@ if (event.code == 'ArrowDown'){
 }
 
 let scoreNum =document.querySelector('.score-num')
-//console.log(scoreNum)
+console.log(scoreNum)
 
 scoreNum.innerText=score
 //console.log('the score is'+score)
