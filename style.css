@@ -1,7 +1,7 @@
 body{
     text-align: center;
     background-color:#d5d3e5;
-    background-image: linear-gradient(to right, rgba(67, 3, 96, 0.5), #A59bb0, rgba(67, 3, 96, 0.5)  );
+    /* background-image: linear-gradient(to right, rgba(67, 3, 96, 0.5), #A59bb0, rgba(67, 3, 96, 0.5)  ); */
     font-family: 'Bruno Ace', cursive ,sans-serif;
     color: #322b40;
     position: relative;
