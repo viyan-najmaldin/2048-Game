@@ -2,6 +2,10 @@ let arr;
 let rows= 4;
 let columns =4;
 let score =0;
+let tryleft = true;
+let tryRight = true;
+let tryUp = true;
+let tryDown = true;
 
 window.onload = function(){
     startGame();
@@ -12,8 +16,8 @@ function startGame(){
      arr=[
         [0,0,0,0],
         [0,0,0,0],
-        [8,4,2,2],
-        [4,4,2,2]
+        [0,0,0,0],
+        [0,0,0,0]
     ]
 
 
@@ -49,7 +53,8 @@ function updateElement(element,num){
     element.classList.add('smooth')
     element.classList.add('unsmooth')
     }
-
+    
+   
 }
 function filtterZero(row){
   return  row.filter(num => num != 0)
@@ -72,10 +77,13 @@ function moveLeft(){
                             }
 
                 if(z>0  && arr[i][z]==arr[i][z-1]){
+                    tryleft =true
                     arr[i][z-1]*= 2
                     score += arr[i][z-1]
                     arr[i][z]=0
                 }
+                tryleft =false
+
             }
         }
     }
@@ -109,10 +117,13 @@ function moveRight(){
 
      for(let x=row.length-1 ;x>=0;x--){  
       if(row[x] == row[x+1]){
+        tryRight =true
         row[x+1] *= 2;
         score += row[x+1]
         row[x]=0;
-       }   
+       }
+       tryRight =false
+
      }
 
     row= filtterZero(row)     
@@ -131,11 +142,13 @@ function moveUp(){
 
         for (let x = 0; x < y.length-1; x++){
             if (y[x] == y[x+1]) {
+        tryUp =true
                 y[x] *= 2;
         score += y[x]
 
                 y[x+1] = 0;
             }
+        tryUp =false
         }
 
       
@@ -158,10 +171,13 @@ function moveDown(){
 
         for (let x=y.length-1 ;x>=0;x--){  // 4    
             if (y[x] == y[x+1]){
+        tryDown =true
               y[x] *= 2;
         score += y[x]
               y[x+1]= 0;
-             }   
+             }
+        tryDown =false
+
            }
       
           y= filtterZero(y)     
@@ -235,7 +251,7 @@ document.addEventListener('keyup' ,(event)=>{
 if (event.code == 'ArrowLeft'){
     console.log('leftttttt')
     moveLeft();
-    setTwo()
+    // setTwo()
     console.log(arr)
    
 }
@@ -243,7 +259,7 @@ if (event.code == 'ArrowLeft'){
 if (event.code == 'ArrowRight'){
     console.log('righttttttt')
     moveRight()
-    setTwo()
+    // setTwo()
     console.log(arr)
 
 }
@@ -251,14 +267,14 @@ if (event.code == 'ArrowRight'){
 if (event.code == 'ArrowUp'){
     console.log('Uppp')
     moveUp()
-    setTwo()
+    // setTwo()
     console.log(arr)
 }
 
 if (event.code == 'ArrowDown'){
     console.log('Down')
     moveDown()
-    setTwo()
+    // setTwo()
     console.log(arr)
 }
 
@@ -270,48 +286,86 @@ scoreNum.innerText=score
 
 for(let i=0 ;i<rows;i++){
     for(let j=0; j<columns; j++){
-     let  ele= document.getElementById(i+'-'+j)
-     
+     let  ele= document.getElementById(i+'-'+j) 
      let num =arr[i][j]
-     
-        updateElement(ele,num)
+        updateElement(ele,num)  
     }}
 
+    setTwo()
+    GameOver()
+    
 })
-  
 
+function setTwo() {
+    if (!hasEmptyTile()) {
+        return;
+    }
+    while (true) {
+        let r = Math.floor(Math.random() * rows);
+        let c = Math.floor(Math.random() * columns);
+      
+        if (arr[r][c] == 0) {
+          
+          if (r+c==4)
+          arr[r][c] = 2+2;
 
+            else
+            arr[r][c] = 2;
 
-
-function setTwo(){
-    // for(let i=0 ;i<rows;i++){
-    //     for(let j=0; j<columns; j++){
-
-    //         if(!(arr[i][j]==0)){
-              
-                let r= Math.floor(Math.random() *4)
-                let c= Math.floor(Math.random() *4)
- 
-                let found = false;
-                
-                if(arr[r][c]==0){
-                  console.log(arr)
-
-                    console.log(r+ ' & ' +c)
-                  arr[r][c]=2;
-                  let  element = document.getElementById(r+'-'+c)
-
-                  element.innerText= 2;
-                   element.classList.add('e2')
-
-                
-            }
-            // }
-
-            // else return;
-        // } }
+            let tile = document.getElementById(r+ "-" + c);
+            tile.innerText = 2;
+            tile.classList.add("e2");
+           break;
+        }
+    }
 }
 
+function hasEmptyTile() {
+    let count = 0;
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < columns; c++) {
+            if (arr[r][c] == 0) { 
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+let maxx=0;
+let minn=0;
+function GameOver(){
+   // let game =true;
+   
+
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < columns; c++) {
+        
+            if(arr[r][c]>maxx){
+                maxx= arr[r][c]
+            }
+
+            if(!hasEmptyTile() && !ContinueTheGame()){
+                alert('Game over')
+                window.reload()
+            }
+        }
+    }
+  
+     if(maxx == 2048  )
+       alert('You Win')
+    
+
+}
+
+function ContinueTheGame(){
+
+    if( tryDown  || tryRight  || tryUp  || tryleft ){
+          return true
+    }
+
+    return false
+}
 
 
 
