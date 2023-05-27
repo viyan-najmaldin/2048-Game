@@ -16,7 +16,7 @@
     <h1>2048 Game</h1>
     <div class="Title">
         <div class="score">Score: <span class="score-num">0</span></div>
-        <button class="new-game">New Game</button>
+        <button class="new-game" id="new-game">New Game</button>
     </div>
     <hr>
 <br>
@@ -27,9 +27,31 @@
       </audio>
 </div> -->
 
-    <div class="box">
+    <div class="box" id="box">
     </div>
 
-   
+    <div class="win-box none">
+        <div>Yes! You Won The Game :) </div>
+       <div class="win-buttons">
+        <button class="cancel btn" id="cancel">Cancel</button>
+        <button class="new-games btn" >New Game</button>
+       </div>
+    </div>
+
+    <div class="lose-box none">
+        <h3>Game Over</h3>
+        <div> Oops! You lost the Game :( </div>
+       <div class="lose-buttons">
+        <button class="cancel-lose btn" id="cancel">Cancel</button>
+        <button class="neww-games btn" >New Game</button>
+       </div>
+    </div>
+
+    <div class="container">
+      
+        <p id="output">Swipe Across The Above Area</p>
+      </div>
+
+
 </body>
 </html>
