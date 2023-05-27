@@ -199,3 +199,23 @@ hr{
   }
 
 
+
+  .keybourdd{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    margin: 10px auto;
+
+  }
+
+  .keybourdd button{
+    background-color: #8d7cb0;
+    padding: 5px 15px;
+    font-size: large;
+    border: none;
+    border-radius: 50%;
+  }
+
+
+  

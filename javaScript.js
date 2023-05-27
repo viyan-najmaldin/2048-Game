@@ -26,7 +26,7 @@ function startGame(){
 
 
     // touchDevice()
-
+    
 
     let newGame= document.getElementById('new-game');
     newGame.addEventListener("click",()=>{location.reload()})
@@ -50,6 +50,7 @@ for(let i=0 ;i<rows;i++){
     
    setTwo()
    setTwo()
+   deviceTypee()
    
 }
 
@@ -366,6 +367,101 @@ function setTwo() {
     }
 }
 
+/////////////////////////////////////////////
+////////////////////////////////////////////
+///////////////////////////////////////////
+
+
+
+
+    function deviceTypee(){
+        let Up =document.getElementById('Up')
+        let Down =document.getElementById('Down')
+        let Left =document.getElementById('Left')
+        let Right =document.getElementById('Right')
+
+        if ("ontouchstart" in document.documentElement)
+        {
+            Up.addEventListener('click' ,()=>{  moveUp(); for(let i=0 ;i<rows;i++){
+                for(let j=0; j<columns; j++){
+                 let  ele= document.getElementById(i+'-'+j) 
+                 let num =arr[i][j]
+                    updateElement(ele,num)       
+                }}
+            
+                setTwo() }) 
+            Down.addEventListener('click' ,()=>{     moveDown(); for(let i=0 ;i<rows;i++){
+                for(let j=0; j<columns; j++){
+                 let  ele= document.getElementById(i+'-'+j) 
+                 let num =arr[i][j]
+                    updateElement(ele,num)       
+                }}
+            
+                setTwo() })
+            Left.addEventListener('click' ,()=>{     moveLeft(); for(let i=0 ;i<rows;i++){
+                for(let j=0; j<columns; j++){
+                 let  ele= document.getElementById(i+'-'+j) 
+                 let num =arr[i][j]
+                    updateElement(ele,num)       
+                }}
+            
+                setTwo() })
+            Right.addEventListener('click' ,()=>{    moveRight(); for(let i=0 ;i<rows;i++){
+                for(let j=0; j<columns; j++){
+                 let  ele= document.getElementById(i+'-'+j) 
+                 let num =arr[i][j]
+                    updateElement(ele,num)       
+                }}
+            
+                setTwo() })
+
+            
+let scoreNum =document.querySelector('.score-num')
+console.log(scoreNum)
+scoreNum.innerText=score
+GameOver()
+
+  // won game   
+   let YouWinBox= document.querySelector('.win-box')
+   let CancelButton= document.querySelector('.cancel')
+   CancelButton.addEventListener("click",()=>{
+       YouWinBox.classList.add('none') })
+   let newe= document.querySelector('.new-games')
+   newe.addEventListener("click",()=>{
+   location.reload()
+})
+
+// lost Game
+let YouloseBox= document.querySelector('.lose-box')
+console.log(YouloseBox)
+
+let CancelLoseBtn= document.querySelector('.cancel-lose')
+CancelLoseBtn.addEventListener("click",()=>{
+         YouloseBox.classList.add('none')
+    })
+
+    let news= document.querySelector('.neww-games')
+   news.addEventListener("click",()=>{
+   location.reload()
+})
+        }
+        else
+        {
+            let Keybourd= document.querySelector('.keybourdd')
+            Keybourd.classList.add('none') 
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
 function hasEmptyTile() {
     let count = 0;
     for (let r = 0; r < rows; r++) {
@@ -419,157 +515,3 @@ function ContinueTheGame(){
 
 
 
-
-
-
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////
-
-
-
-// function touchDevice(){
-
-//     let touchArea = document.getElementById("box");
-// let output = document.getElementById("output");
-
-// //Initial mouse X and Y positions are 0
-
-// let mouseX,
-//   initialX = 0;
-// let mouseY,
-//   initialY = 0;
-// let isSwiped;
-
-// //Events for touch and mouse
-// let events = {
-//   mouse: {
-//     down: "mousedown",
-//     move: "mousemove",
-//     up: "mouseup",
-//   },
-//   touch: {
-//     down: "touchstart",
-//     move: "touchmove",
-//     up: "touchend",
-//   },
-// };
-
-// let deviceType = "";
-
-// //Detect touch device
-
-// const isTouchDevice = () => {
-//   try {
-//     //We try to create TouchEvent (it would fail for desktops and throw error)
-//     document.createEvent("TouchEvent");
-//     deviceType = "touch";
-//     return true;
-//   } catch (e) {
-//     deviceType = "mouse";
-//     return false;
-//   }
-// };
-
-// //Get left and top of touchArea
-// let rectLeft = touchArea.getBoundingClientRect().left;
-// let rectTop = touchArea.getBoundingClientRect().top;
-
-// //Get Exact X and Y position of mouse/touch
-// const getXY = (e) => {
-//   mouseX = (!isTouchDevice() ? e.pageX : e.touches[0].pageX) - rectLeft;
-//   mouseY = (!isTouchDevice() ? e.pageY : e.touches[0].pageY) - rectTop;
-// };
-
-//  isTouchDevice();
-
-// //Start Swipe
-// touchArea.addEventListener(events[deviceType].down, (event) => {
-//   isSwiped = true;
-//   //Get X and Y Position
-//   getXY(event);
-//   initialX = mouseX;
-//   initialY = mouseY;
-// });
-
-// //Mousemove / touchmove
-// touchArea.addEventListener(events[deviceType].move, (event) => {
-// //   if (!isTouchDevice()) {
-// //     // event.preventDefault();
-// //   }
-//   if (isSwiped) {
-//     getXY(event);
-//     let diffX = mouseX - initialX;
-//     let diffY = mouseY - initialY;
-//     if (Math.abs(diffY) > Math.abs(diffX)) {
-//       output.innerText = diffY > 0 ? moveDown() : moveUp();
-//     } else {
-//       output.innerText = diffX > 0 ? moveRight() :     moveLeft();
-//       ;
-//     }
-
-
-//     let scoreNum =document.querySelector('.score-num')
-//     console.log(scoreNum)
-    
-//     scoreNum.innerText=score
-//     //console.log('the score is'+score)
-//     GameOver()
-//     setTwo()
-//     for(let i=0 ;i<rows;i++){
-//         for(let j=0; j<columns; j++){
-//          let  ele= document.getElementById(i+'-'+j) 
-//          let num =arr[i][j]
-//             updateElement(ele,num) 
-            
-            
-//         }}
-    
-        
-//       // won game   
-//        let YouWinBox= document.querySelector('.win-box')
-//        let CancelButton= document.querySelector('.cancel')
-       
-//        CancelButton.addEventListener("click",()=>{
-//            YouWinBox.classList.add('none')
-//        })
-        
-//        let newe= document.querySelector('.new-games')
-//        newe.addEventListener("click",()=>{
-//        location.reload()
-//     })
-    
-//     // lost Game
-//     let YouloseBox= document.querySelector('.lose-box')
-//     console.log(YouloseBox)
-    
-//     let CancelLoseBtn= document.querySelector('.cancel-lose')
-//     CancelLoseBtn.addEventListener("click",()=>{
-//              YouloseBox.classList.add('none')
-//         })
-    
-//         let news= document.querySelector('.neww-games')
-//        news.addEventListener("click",()=>{
-//        location.reload()
-//     })
-
-
-//   }
-// });
-
-// //Stop Drawing
-// touchArea.addEventListener(events[deviceType].up, () => {
-//   isSwiped = false;
-// });
-
-// touchArea.addEventListener("mouseleave", () => {
-//   isSwiped = false;
-// });
-
-// window.onload = () => {
-//   isSwiped = false;
-// };
-
-// }
