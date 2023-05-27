@@ -362,6 +362,8 @@ function setTwo() {
             let tile = document.getElementById(r+ "-" + c);
             tile.innerText = 2;
             tile.classList.add("e2");
+
+            console.log(r+ "-" + c);
            break;
         }
     }
@@ -388,35 +390,7 @@ function setTwo() {
                  let num =arr[i][j]
                     updateElement(ele,num)       
                 }}
-            
-                setTwo() }) 
-            Down.addEventListener('click' ,()=>{     moveDown(); for(let i=0 ;i<rows;i++){
-                for(let j=0; j<columns; j++){
-                 let  ele= document.getElementById(i+'-'+j) 
-                 let num =arr[i][j]
-                    updateElement(ele,num)       
-                }}
-            
-                setTwo() })
-            Left.addEventListener('click' ,()=>{     moveLeft(); for(let i=0 ;i<rows;i++){
-                for(let j=0; j<columns; j++){
-                 let  ele= document.getElementById(i+'-'+j) 
-                 let num =arr[i][j]
-                    updateElement(ele,num)       
-                }}
-            
-                setTwo() })
-            Right.addEventListener('click' ,()=>{    moveRight(); for(let i=0 ;i<rows;i++){
-                for(let j=0; j<columns; j++){
-                 let  ele= document.getElementById(i+'-'+j) 
-                 let num =arr[i][j]
-                    updateElement(ele,num)       
-                }}
-            
-                setTwo() })
-
-            
-let scoreNum =document.querySelector('.score-num')
+                let scoreNum =document.querySelector('.score-num')
 console.log(scoreNum)
 scoreNum.innerText=score
 GameOver()
@@ -444,6 +418,128 @@ CancelLoseBtn.addEventListener("click",()=>{
    news.addEventListener("click",()=>{
    location.reload()
 })
+            
+                setTwo() }) 
+
+
+            Down.addEventListener('click' ,()=>{     moveDown(); for(let i=0 ;i<rows;i++){
+                for(let j=0; j<columns; j++){
+                 let  ele= document.getElementById(i+'-'+j) 
+                 let num =arr[i][j]
+                    updateElement(ele,num)       
+                }}
+
+                let scoreNum =document.querySelector('.score-num')
+                console.log(scoreNum)
+                scoreNum.innerText=score
+                GameOver()
+                
+                  // won game   
+                   let YouWinBox= document.querySelector('.win-box')
+                   let CancelButton= document.querySelector('.cancel')
+                   CancelButton.addEventListener("click",()=>{
+                       YouWinBox.classList.add('none') })
+                   let newe= document.querySelector('.new-games')
+                   newe.addEventListener("click",()=>{
+                   location.reload()
+                })
+                
+                // lost Game
+                let YouloseBox= document.querySelector('.lose-box')
+                console.log(YouloseBox)
+                
+                let CancelLoseBtn= document.querySelector('.cancel-lose')
+                CancelLoseBtn.addEventListener("click",()=>{
+                         YouloseBox.classList.add('none')
+                    })
+                
+                    let news= document.querySelector('.neww-games')
+                   news.addEventListener("click",()=>{
+                   location.reload()
+                })
+
+
+                setTwo() })
+
+
+            Left.addEventListener('click' ,()=>{     moveLeft(); for(let i=0 ;i<rows;i++){
+                for(let j=0; j<columns; j++){
+                 let  ele= document.getElementById(i+'-'+j) 
+                 let num =arr[i][j]
+                    updateElement(ele,num)       
+                }}
+            
+                let scoreNum =document.querySelector('.score-num')
+console.log(scoreNum)
+scoreNum.innerText=score
+GameOver()
+
+  // won game   
+   let YouWinBox= document.querySelector('.win-box')
+   let CancelButton= document.querySelector('.cancel')
+   CancelButton.addEventListener("click",()=>{
+       YouWinBox.classList.add('none') })
+   let newe= document.querySelector('.new-games')
+   newe.addEventListener("click",()=>{
+   location.reload()
+})
+
+// lost Game
+let YouloseBox= document.querySelector('.lose-box')
+console.log(YouloseBox)
+
+let CancelLoseBtn= document.querySelector('.cancel-lose')
+CancelLoseBtn.addEventListener("click",()=>{
+         YouloseBox.classList.add('none')
+    })
+
+    let news= document.querySelector('.neww-games')
+   news.addEventListener("click",()=>{
+   location.reload()
+})
+
+
+                setTwo() })
+            Right.addEventListener('click' ,()=>{    moveRight(); for(let i=0 ;i<rows;i++){
+                for(let j=0; j<columns; j++){
+                 let  ele= document.getElementById(i+'-'+j) 
+                 let num =arr[i][j]
+                    updateElement(ele,num)       
+                }}
+                let scoreNum =document.querySelector('.score-num')
+console.log(scoreNum)
+scoreNum.innerText=score
+GameOver()
+
+  // won game   
+   let YouWinBox= document.querySelector('.win-box')
+   let CancelButton= document.querySelector('.cancel')
+   CancelButton.addEventListener("click",()=>{
+       YouWinBox.classList.add('none') })
+   let newe= document.querySelector('.new-games')
+   newe.addEventListener("click",()=>{
+   location.reload()
+})
+
+// lost Game
+let YouloseBox= document.querySelector('.lose-box')
+console.log(YouloseBox)
+
+let CancelLoseBtn= document.querySelector('.cancel-lose')
+CancelLoseBtn.addEventListener("click",()=>{
+         YouloseBox.classList.add('none')
+    })
+
+    let news= document.querySelector('.neww-games')
+   news.addEventListener("click",()=>{
+   location.reload()
+})
+                setTwo() 
+            
+            })
+
+            
+
         }
         else
         {
