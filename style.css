@@ -218,4 +218,7 @@ hr{
   }
 
 
-  
+  .btn:hover {
+    background-color: #322b40;
+    color: #ab9ea8;
+  }
