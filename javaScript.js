@@ -51,7 +51,7 @@ for(let i=0 ;i<rows;i++){
    setTwo()
    setTwo()
    deviceTypee()
-   
+   console.log(arr)
 }
 
 function updateElement(element,num){
@@ -360,10 +360,10 @@ function setTwo() {
             arr[r][c] = 2;
 
             let tile = document.getElementById(r+ "-" + c);
-            tile.innerText = 2;
+            tile.innerText = arr[r][c];
             tile.classList.add("e2");
 
-            console.log(r+ "-" + c);
+            console.log(r+ "-" + c +' = '+arr[r][c]);
            break;
         }
     }
