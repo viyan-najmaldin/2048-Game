@@ -157,8 +157,6 @@ function moveUp(){
     for(let i=0 ;i<arr.length;i++){
         let y=[arr[0][i],arr[1][i],arr[2][i],arr[3][i]] 
         y = filtterZero(y) 
-
-
         for (let x = 0; x < y.length-1; x++){
             if (y[x] == y[x+1]) {
         tryUp =true
@@ -168,18 +166,14 @@ function moveUp(){
                 y[x+1] = 0;
             }
         tryUp =false
-        }
-
-      
+        } 
           y= filtterZero(y)     
           while(y.length<4) {
-                y.push(0)}         
-          
+                y.push(0)}              
         arr[0][i]= y[0]
         arr[1][i]= y[1]
         arr[2][i]= y[2]
         arr[3][i]= y[3]
-
     }
 }
 
@@ -187,22 +181,18 @@ function moveDown(){
     for(let i=0 ;i<arr.length;i++){
         let y=[arr[0][i],arr[1][i],arr[2][i],arr[3][i]] 
         y = filtterZero(y) 
-
         for (let x=y.length-1 ;x>=0;x--){  // 4    
-            if (y[x] == y[x+1]){
+            if (y[x] == y[x-1]){
         tryDown =true
               y[x] *= 2;
         score += y[x]
-              y[x+1]= 0;
+              y[x-1]= 0;
              }
         tryDown =false
-
-           }
-      
+           }    
           y= filtterZero(y)     
           while(y.length<4) {
-                y.unshift(0)}         
-          
+                y.unshift(0)}               
         arr[0][i]= y[0]
         arr[1][i]= y[1]
         arr[2][i]= y[2]
@@ -306,7 +296,7 @@ GameOver()
 
 for(let i=0 ;i<rows;i++){
     for(let j=0; j<columns; j++){
-     let  ele= document.getElementById(i+'-'+j) 
+     let ele= document.getElementById(i+'-'+j) 
      let num =arr[i][j]
         updateElement(ele,num) 
         
